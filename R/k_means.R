@@ -7,6 +7,7 @@
 #' @return A list with the cluster assignments and total sum of squares
 #'
 #' @import dplyr
+#'
 #' @export
 
 

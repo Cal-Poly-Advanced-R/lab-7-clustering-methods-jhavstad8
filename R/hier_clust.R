@@ -5,6 +5,7 @@
 #' @return A data frame with the cluster assignments
 #'
 #' @import dplyr
+#'
 #' @export
 
 hier_clust <- function(dat,k){

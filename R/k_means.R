@@ -44,7 +44,7 @@ k_means <- function(dat,k,pca=FALSE){
     mean_y <- tapply(dat[,2], dat[,3], mean)
 
     # repeat steps
-    for(step in 1:5){
+    for(step in 1:10){
     for(clust in 1:k){
         for(i in 1:length(x)){
             dist[i,clust] <- sqrt((mean_x[clust] - x[i])^2 + (mean_y[clust] - y[i])^2)
@@ -60,7 +60,7 @@ k_means <- function(dat,k,pca=FALSE){
     mean_y <- tapply(dat[,2], dat[,3], mean)
     }
 
-    results <- cluster
+    results <- as.vector(cluster)
     return(results)
 }
 

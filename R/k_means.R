@@ -32,9 +32,10 @@ k_means <- function(dat,k,pca=FALSE){
     }
     # find which starting point each observation is closest to
     for(row in 1:nrow(dist)){
-        shortest <- which.min(dist[i,])
+        shortest <- which.min(dist[row,])
         cluster <- c(cluster,shortest)
     }
+
     # bind cluster vector to dataset, showing which cluster each observation is in
     dat <- cbind(dat,cluster)
 

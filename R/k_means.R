@@ -24,20 +24,23 @@ k_means <- function(dat,k,pca=FALSE){
     dist <- data.frame(matrix(ncol=k,nrow=length(x)))
 
     # find distances between each point in our data set and each sample observation
-    cluster <- c()
+    # cluster <- c()
     for(clust in 1:k){
         for(i in 1:length(x)){
         dist[i,clust] <- sqrt((pts[clust,1] - x[i])^2 + (pts[clust,2] - y[i])^2)
         }
     }
     # find which starting point each observation is closest to
-    for(row in 1:nrow(dist)){
-        shortest <- which.min(dist[row,])
-        cluster <- c(cluster,shortest)
-    }
+    #for(row in 1:nrow(dist)){
+        #shortest <- which.min(dist[row,])
+        #cluster <- c(cluster,shortest)
+    #}
+
+    cluster <- apply(dist, 1, which.min)
+
 
     # bind cluster vector to dataset, showing which cluster each observation is in
-    dat <- cbind(dat,cluster)
+    dat <- cbind(dat,as.vector(cluster))
 
     # find mean x and y for each cluster, those are new starting points
     mean_x <- tapply(dat[,1], dat[,3],mean)

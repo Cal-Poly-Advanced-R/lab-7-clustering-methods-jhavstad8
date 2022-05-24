@@ -52,7 +52,7 @@ k_means <- function(dat,k,pca=FALSE){
     cluster <- c()
     for(row in 1:nrow(dist)){
         shortest <- which.min(dist[row,])
-        cluster <- c(clusteer,shortest)
+        cluster <- c(cluster,shortest)
     }
     dat[,3] <- cluster
     mean_x <- tapply(dat[,1], dat[,3],mean)

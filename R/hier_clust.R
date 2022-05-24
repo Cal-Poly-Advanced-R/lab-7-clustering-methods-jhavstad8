@@ -29,6 +29,8 @@ hier_clust <- function(dat,k){
         meanx <- mean(c(dat[find_r1,1], dat[find_r2,1]))
         meany <- mean(c(dat[find_r1,2], dat[find_r2,2]))
  # find way to replace rows with new obs (meanx,meany)
+        clusters <- c(find_r1,find_r2)
+        return(clusters)
 }
 }
 
